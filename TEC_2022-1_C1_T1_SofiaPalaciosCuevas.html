@@ -1,0 +1,1389 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix { height: auto; margin-top: 16px; margin-bottom: 16px; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+  --mermaid-theme: night;
+}
+
+[lang='mermaid'] .label {
+  color: #333;
+}
+
+/* CSS Document */
+
+/** code highlight */
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C88FD0;
+}
+
+.cm-s-inner .cm-tag {
+    color: #7DF46A;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #7575E4;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #b8bfc6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #D26B6B;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #DA924A;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #8d8df0;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #57ac57;
+}
+
+.cm-s-inner .cm-hr {
+    color: #d8d5d5;
+}
+
+.cm-s-inner .cm-link {
+    color: #d3d3ef;
+}
+
+.cm-s-inner .cm-negative {
+    color: #d95050;
+}
+
+.cm-s-inner .cm-positive {
+    color: #50e650;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #b7b3b3;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #f3b3f8;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #997;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #84B6CB;
+}
+
+.cm-s-inner .cm-number {
+    color: #64AB8F;
+}
+
+.cm-s-inner .cm-variable {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #9FBAD5;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #1cc685;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #4a89dc;
+    color: #fff !important;
+    text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+/* CSS Document */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property
+{
+    color: #cebcca;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor{
+    border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #9FB1FF;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #A7A7D9
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+    color: #848695;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #95B94B;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(51, 51, 51, 0.72);
+}
+
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code {
+	color: #8aa1e1;
+}@import "";
+@import "";
+@import "";
+
+:root {
+    --bg-color:  #363B40;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #363B40;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 914px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #b8bfc6;
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #333;
+}
+
+.native-window #md-notification {
+    border: 1px solid #70717d;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #333;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+}
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lucida Grande", "Corbel", sans-serif;
+    font-weight: normal;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #DEDEDE
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 40px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 24px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* 18px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.12rem;
+    /* 16px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: white;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* 16px */
+    line-height: 1.25rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* 16px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #ddd;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #555;
+    color: #ddd;
+}
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 2px #474d54;
+    padding-left: 30px;
+    margin-top: 35px;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875em;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+}
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+hr {
+    background: #474d54;
+    /* variable */
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.md-inline-math script {
+    color: #81b1db;
+}
+
+b,
+th,
+dt,
+strong {
+    color: #DEDEDE;
+    /* variable */
+}
+
+mark {
+    background: #D3D40E;
+}
+
+blockquote {
+    color: #9DA2A6;
+}
+
+table a {
+    color: #DEDEDE;
+    /* variable */
+}
+
+th,
+td {
+    border: solid 1px #474d54;
+    /* variable */
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #b8bfc6;
+    background-color: #363B40;
+    margin-top: -0.4rem;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    /*◘*/
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: #DEDEDE;
+}
+
+/** quick open **/
+.auto-suggest-container {
+    border: 0px;
+    background-color: #525C65;
+}
+
+#typora-quick-open {
+    background-color: #525C65;
+}
+
+#typora-quick-open input{
+    background-color: #525C65;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #4D8BDB;
+    color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
+}
+
+.typora-search-spinner > div {
+  background-color: #fff;
+}
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+}
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #b8bfc6;
+}
+
+.ty-table-edit {
+    border-top: 1px solid gray;
+    background-color: #363B40;
+}
+
+.popover-title {
+    background: transparent;
+}
+
+.md-image>.md-meta {
+    color: #BBBBBB;
+    background: transparent;
+}
+
+.md-expand.md-image>.md-meta {
+    color: #DDD;
+}
+
+#write>h3:before,
+#write>h4:before,
+#write>h5:before,
+#write>h6:before {
+    border: none;
+    border-radius: 0px;
+    color: #888;
+    text-decoration: underline;
+    left: -1.4rem;
+    top: 0.2rem;
+}
+
+#write>h3.md-focus:before {
+    top: 2px;
+}
+
+#write>h4.md-focus:before {
+    top: 2px;
+}
+
+.md-toc-item {
+    color: #A8C2DC;
+}
+
+#write div.md-toc-tooltip {
+    background-color: #363B40;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: white;
+    background: black;
+}
+
+#toc-dropmenu {
+    background: rgba(50, 54, 59, 0.93);
+    border: 1px solid rgba(253, 253, 253, 0.15);
+}
+
+#toc-dropmenu .divider {
+    background-color: #9b9b9b;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+}
+
+.sidebar-tabs {
+    border-bottom:0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-item:hover {
+    border-color: #363B40;
+    background-color: #363B40;
+    color: white;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #8C8E92;
+    display: inline;
+}
+
+.md-comment {
+    color: #5a95e3;
+    opacity: 1;
+}
+
+.md-inline-math svg {
+    color: #b8bfc6;
+}
+
+#math-inline-preview .md-arrow:after {
+    background: black;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 0;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(26, 21, 21, 0.51);
+    color: white;
+}
+
+.modal-content .input-group-addon {
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(174, 174, 174, 0.7);
+}
+
+.modal-content .btn-primary {
+    border-color: var(--primary-color);
+}
+
+.md-table-resize-popover {
+    background-color: #333;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: white;
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed grey;
+}
+
+/** UI for electron */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #42464A;
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #777777;
+    opacity: 1;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #555;
+    color: #dedede;
+}
+
+.megamenu-content,
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px grey solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #2F353A;
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: white;
+}
+
+.modal-footer .btn-default, 
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-primary {
+    color: white;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    border: 1px solid #ddd;
+    background-color: inherit;
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #eee;
+    background: transparent;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(250, 250, 250, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(250, 250, 250, 0.5);
+}
+
+#w-unpin {
+    background-color: #4182c4;
+}
+
+#top-titlebar, #top-titlebar * {
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #333333;
+}
+
+#toggle-sourceview-btn:hover {
+    color: #eee;
+    background: #333333;
+}
+
+/** focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
+    opacity: #686868 !important;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container){
+    color: #686868;
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #fff;
+}
+
+.on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+    color: #686868 !important;
+}
+
+
+/*diagrams*/
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #f1908e;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #eee;
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: white;
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: white;
+}
+
+#sidebar-files-menu {
+    border:solid 1px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: var(--bg-color);
+}
+
+.file-list-item {
+    border-bottom:none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active>.file-node-content,
+.file-list-item.active {
+    color: white;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active>.file-node-background{
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+.file-list-item.active {
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+
+#ty-tooltip {
+    background-color: black;
+    color: #eee;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active,
+.export-item.active,
+.export-items-list-control,
+.export-detail {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54 !important;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+    backdrop-filter: blur(1px);
+}
+
+.clear-btn-icon {
+    top: 8px;
+}
+
+
+</style><title>TEC_2022-1_C1_T1_SofiaPalaciosCuevas</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span>Tarea 1. Resumen de Capítulo</span></p><p><strong><span>Libro: </span></strong><span>Como programar en C++, H.M. Deitel</span>
+<strong><span>Capítulo: </span></strong><span>1. Introducción a las computadoras y C++</span></p><hr /><h2 id='11-introducción'><span>1.1 Introducción</span></h2><div align="justify"> C++ es uno de los lenguajes de desarrollo de software más populares de la actualidad.  El explosivo crecimiento del mercado de aplicaciones para teléfonos inteligentes y tabletas está creando oportunidades significativas para programar aplicaciones de este tipo.</div><h2 id='12-ordenadores-e-internet-en-la-industria-y-la-investigación'><span>1.2 Ordenadores e Internet en la industria y la investigación</span></h2><div align="justify"> Muchas de las empresas más influyentes y exitosas de las dos últimas décadas son empresas tecnológicas. Algunas formas en las que los ordenadores mejoran la vida de las personas en la investigación, la industria y la sociedad:</div><ul><li><strong><span> Registros médicos electrónicos.</span></strong><span> Tener acceso a una red segura que brinde el historial médico de un paciente reduce la probabilidad de error, al tiempo que incrementa la eficiencia del sistema de salud, controlando los gastos.</span></li><li><strong><span>Proyecto del Genoma Humano.</span></strong><span> Uso de programas computarizados para analizar los 20, 000+ genes del ADN humano.</span></li><li><strong><span>Alerta AMBER.</span></strong><span> Sistema de alerta, utilizado para encontrar infantes desaparecidos, que involucra señales computarizadas, internet y dispositivos inalámbricos, así como de redes sociales.</span></li><li><strong><span>World Community Grid. </span></strong><span> Donación de poder de procesamiento computacional para el uso de supercomputadoras. </span></li><li><strong><span> Informática en la nube. </span></strong><span>Permite utilizar el software, el hardware y la información almacenada en la &quot;nube&quot;, en vez de en el ordenador.</span></li><li><strong><span>Imagenología médica. </span></strong><span> Optimización de los escaneos utilizados en estudios de imagenología médica; creación de imágenes 3D.</span></li><li><strong><span> GPS. </span></strong><span> Sistema de Posicionamiento Global que utiliza una red de satélites para recuperar la información basada en ubicación.</span></li><li><strong><span>Robots.</span></strong><span> Pueden utilizarse para tareas cotidianas, entretenimiento, combate militar, exploración de las profundidades del mar y del espacio, etc. </span></li><li><strong><span>Correo electrónico, mensajería instantánea, videochat y FTP. </span></strong><span> Los servidores basados en Internet soportan toda la mensajería en línea. El FTP (protocolo de transferencia de archivos) permite intercambiar archivos entre varios ordenadores a través de Internet.</span></li><li><strong><span>TV por internet. </span></strong><span>Permiten acceder a una enorme cantidad de contenidos en demanda y ayudan a garantizar que los contenidos se transmitan al televisor sin problemas.</span></li><li><strong><span>Servicios de música en streaming. </span></strong><span>Permite escuchar grandes catálogos de música a través de la web, crear &quot;emisoras de radio&quot; personalizadas y descubrir nueva música en función de los comentarios.</span></li><li><strong><span>Programación de videojuegos</span></strong></li></ul><h2 id='13-hardware-y-software'><span>1.3 Hardware y Software</span></h2><div align="justify">Las computadoras personales pueden realizar billones de cálculos en un segundo, mientras que las supercomputadoras ejecutan miles de trillones de instrucciones por segundo. La supercomputadora Tianhe-2 puede realizar 3 millones de cálculos por segundo por cada persona en el planeta. Y los límites de la supercomputación crecen rápidamente. </div><ul><li><strong><span>Programas de computadora</span></strong><span>. Secuencias de instrucciones a partir de las cuales las computadoras procesan la información.</span></li><li><strong><span>Programador</span></strong><span>. Persona que especifica las instrucciones de los programas.</span></li><li><strong><span>Software</span></strong><span>. Programas que corren en una computadora.</span></li></ul><div align="justify">Una computadora consiste de varios dispositivos conocidos como <strong>hardware</strong> (teclado, monitor, ratón, disco duro, memoria, puerto DVD y unidades de procesamiento). Los costos de la informática se están reduciendo drásticamente gracias a la rápida evolución de las tecnologías de hardware y software. La tecnología de los chips de silicio ha hecho que la informática se tan económica que los ordenadores se han convertido en una comodidad. </div><h3 id='131-ley-de-moore'><span>1.3.1 Ley de Moore</span></h3><div align="justify">Aproximadamente, cada uno o dos años, las capacidades de los ordenadores se han duplicado económicamente. - Gordon Moore, co-founder of Intel (1960s). Se aplica especialmente a la cantidad de memoria que tienen los ordenadores para los programas, la cantidad de almacenamiento secundario (en disco) que tienen para mantener los programas y los datos por más tiempo, así como la velocidad de sus procesadores. Éstos hacen que los ordenadores sean más capaces, fomentando la innovación. Se dio un crecimiento similar en las comunicaciones: hay una intensa competencia en la demanda de ancho de banda. Dichas mejoras fomentan la Revolución de la Información. </div><h3 id='132-organización-de-la-computadora'><span>1.3.2 Organización de la computadora</span></h3><p><span>La computadora está organizada en varias </span><strong><span> unidades lógicas </span></strong><span> o secciones:</span></p><figure><table><thead><tr><th><span>Unidad Lógica</span></th><th><span>Descripción</span></th></tr></thead><tbody><tr><td><span>Unidad de entrada (Input unit)</span></td><td><span>Sección de &quot;recepción&quot; que obtiene la información (datos y programas informáticos) de los dispositivos de entrada y la pone a disposición de las demás unidades para su procesamiento.</span></td></tr><tr><td><span>Unidad de salida (Output unit)</span></td><td><span>Sección de &quot;envío&quot; que toma la información que el ordenador ha procesado y la coloca en varios dispositivos de salida para que esté disponible para su uso fuera del ordenador.</span></td></tr><tr><td><span>Unidad de memoria (Memory unit)</span></td><td><span>Sección de &quot;almacén&quot; de acceso rápido y capacidad relativamente baja que retiene la información que ha sido introducida a través de la unidad de entrada, haciéndola inmediatamente disponible para su procesamiento cuando sea necesario. También retiene la información procesada hasta que puede ser colocada en los dispositivos de salida por la unidad de salida. La información de la unidad de memoria es volátil (normalmente se pierde cuando se apaga el ordenador).</span></td></tr><tr><td><span>Unidad aritmética y lógica (ALU, Arithmetic and logic unit)</span></td><td><span>Sección de &quot;fabricación&quot; que realiza los cálculos (suma, resta, multiplicación y división). También contiene los mecanismos de decisión. </span></td></tr><tr><td><span>Unidad central de procesamiento (CPU, Central Processing Unit)</span></td><td><span>Sección &quot;administrativa&quot; que coordina y supervisa el funcionamiento de las demás secciones. Un procesador multinúcleo implementa varios procesadores en un único chip de circuito integrado.</span></td></tr><tr><td><span>Unidad de almacenamiento secundaria (Secondary storage unit)</span></td><td><span>Sección de &quot;almacenamiento&quot; a largo plazo y de gran capacidad. Los programas o datos que no son utilizados activamente por las otras unidades se colocan en dispositivos de almacenamiento secundario (disco duro) hasta que se vuelvan a necesitar. La información de los dispositivos de almacenamiento secundario es persistente (se conserva incluso cuando el ordenador está apagado). El acceso a la información del almacenamiento secundario es mucho más largo que el de la memoria primaria, pero su coste por unidad es mucho menor.</span></td></tr></tbody></table></figure><h2 id='14--jerarquía-de-datos'><span>1.4  Jerarquía de datos</span></h2><div align="justify">Los elementos de datos procesados por los ordenadores forman una <strong>jerarquía de datos</strong> que se hace más grande y más compleja en su estructura a medida que avanzamos de los elementos de datos más simples a los más ricos.</div><figure><table><thead><tr><th><span>Data item</span></th><th><span>Description</span></th></tr></thead><tbody><tr><td><span>Bit</span></td><td><span>El elemento de datos más pequeño de un ordenador que asume el valor 0 o el valor 1 (dígito binario)</span></td></tr><tr><td><span>Character</span></td><td><span>Dígitos, letras y símbolos especiales. Conjunto de caracteres: conjunto de todos los caracteres utilizados para escribir programas y representar elementos de datos (como un patrón de 1s y 0s).</span></td></tr><tr><td><span>Field</span></td><td><span>Grupo de caracteres o bytes que transmite un significado</span></td></tr><tr><td><span>Record</span></td><td><span>Grupo de campos (fields) relacionados</span></td></tr><tr><td><span>File</span></td><td><span>Grupo de registros (records) relacionados; contienen datos arbitrarios en formatos arbitrarios</span></td></tr><tr><td><span>Database</span></td><td><span>Colección de datos organizada para facilitar su acceso y manipulación. Modelo más popular: base de datos relacional (tablas), que incluye registros y campos</span></td></tr><tr><td><span>Big Data</span></td><td><span>Cantidades masivas de datos</span></td></tr></tbody></table></figure><p><strong><span>Mediciones de bytes  </span></strong></p><figure><table><thead><tr><th><span>Unidad</span></th><th><span>Bytes</span></th><th><span>Cantidad exacta</span></th></tr></thead><tbody><tr><td><span>1 kilobyte (KB)</span></td><td><span>1024 bytes</span></td><td><span>10^3</span></td></tr><tr><td><span>1 megabyte (MB)</span></td><td><span>1024 kilobytes</span></td><td><span>10^6</span></td></tr><tr><td><span>1 gigabyte (GB)</span></td><td><span>1024 megabytes</span></td><td><span>10^9</span></td></tr><tr><td><span>1 terabyte (TB)</span></td><td><span>1024 gigabytes</span></td><td><span>10^12</span></td></tr><tr><td><span>1 petabyte (PB)</span></td><td><span>1024 terabytes</span></td><td><span>10^15</span></td></tr><tr><td><span>1 exabyte (EB)</span></td><td><span>1024 petabytes</span></td><td><span>10^18</span></td></tr><tr><td><span>1 zettabyte (ZB)</span></td><td><span>1024 exabytes</span></td><td><span>10^21</span></td></tr></tbody></table></figure><h2 id='15-lenguajes-de-máquina-lenguajes-ensambladores-y-lenguajes-de-alto-nivel'><span>1.5 Lenguajes de máquina, lenguajes ensambladores y lenguajes de alto nivel</span></h2><figure><table><thead><tr><th><span>Tipo de lenguaje</span></th><th><span>Descripción</span></th></tr></thead><tbody><tr><td><span>Machine</span></td><td><span>Consiste de números (1s y 0s); engorroso para los humanos</span></td></tr><tr><td><span>Assembly</span></td><td><span>Abreviaturas en inglés para representar operaciones elementales; más claro para humanos, incomprensible para computadoras hasta que son traducidos por los </span><strong><span>ensambladores</span></strong><span> a lenguaje de máquina</span></td></tr><tr><td><span>High-Level</span></td><td><span>Instrucciones simples para realizar tareas importantes. Dichas instrucciones se parecen más al inglés cotidiano y contienen notaciones matemáticas de uso común</span></td></tr></tbody></table></figure><ul><li><p><strong><span>Compladores</span></strong><span>. Programas traductores que convierten los programas de lenguaje de alto nivel en lenguaje de máquina.</span></p></li><li><p><strong><span>Interpreter programs</span></strong><span>(Programas de interpretación). Ejecutan programas de lenguaje de alto nivel directamente, sin necesidad de compilación, aunque más lentamente que los programas compilados. Procesan </span><strong><span>Scripting languages</span></strong><span> (JavaScript, PHP).</span></p><div align="justify"><strong>Tip</strong>.Un programa interpretado puede comenzar a ejecutarse tan pronto como se descargue en la máquina del cliente, sin necesidad de ser compilado antes de poder ejecutarse; los scripts interpretados se ejecutan más lentamente y consumen más memoria que el código compilado.</div></li></ul><h2 id='16-c--c'><span>1.6 C &amp; C++</span></h2><div align="justify"><p>C fue implementado en 1972 por Dennis Ritchie en los Laboratorios Bell. Es conocido como el lenguaje de desarrollo del sistema operativo UNIX. C++ evolucionó a partir de C. La Organización Internacional de Normalización (ISO) para estandarizar el C en todo el mundo se unió a la Organización Internacional de Normalización (ISO) para estandarizar el C en todo el mundo (1990). C11 es el último estándar ANSI para el lenguaje de programación C. Evoluciona el lenguaje C para seguir el ritmo de un hardware cada vez más potente y de unos requisitos de usuario cada vez más exigentes. También hace que C sea más coherente con C++. </p><p>C++, extensión de C, fue desarrollada por Bjarne Stroustrup en 1979 en los Laboratorios Bell. Originalmente se llamaba "C con clases", y fue rebautizado como C++ (a principios de la década de 1980). C++ ofrece una serie de características que "arreglan" el lenguaje C; proporciona capacidades para la programación orientada a objetos que se inspiraron en el lenguaje de simulación Simula lenguaje de programación de simulación. </p></div><p><strong><span> C++ Stnadard Library </span></strong></p><div align="justify">Los programas C++ se componen de piezas llamadas clases y funciones; la Biblioteca Estándar C++ contiene ricas colecciones de ellas. El aprendizaje del "mundo" de C++ consta de dos partes: el aprendizaje del propio lenguaje C++ (núcleo del lenguaje) y el aprendizaje del uso de las clases y funciones de la biblioteca estándar de C++.</div><p><strong><span>Observaciones</span></strong></p><ul><li><strong><span>Reutilización del software</span></strong><span>.Enfoque de &quot;bloques de construcción&quot; para crear programas. Utilizar piezas existentes siempre que sea posible. Práctica fundamental para una programación orientada a objetos eficaz.</span></li><li><strong><span>Clases and funciones</span></strong><span>. Al programar en C++, normalmente utilizará los siguientes bloques de construcción: clases y funciones de la biblioteca estándar de C++, creadas por usted y sus colegas, y de varias bibliotecas populares de terceros.</span></li></ul><div align="justify">La ventaja de crear tus propias funciones y clases es que sabrás exactamente cómo funcionan. Desventaja: el tiempo y el complejo esfuerzo que supone diseñar, desarrollar y mantener nuevas funciones y clases que sean correctas y funcionen de forma eficiente.</div><p><strong><span>Tips</span></strong></p><ul><li><span>El uso de funciones y clases de la biblioteca estándar de C++ en lugar de escribir sus propias versiones mejora el rendimiento del programa; también acorta el tiempo de desarrollo del programa.</span></li><li><span>Utilizar las funciones y clases de la biblioteca estándar de C++ en lugar de escribir las propias mejora la portabilidad del programa, ya que están incluidas en todas las implementaciones de C++.</span></li></ul><h2 id='17-lenguajes-de-programación'><span>1.7 Lenguajes de programación</span></h2><p><span>Algunos lenguajes de programación populares que soportan la programación orientada a objetos:</span></p><figure><table><thead><tr><th><span>Lenguaje</span></th><th><span>Descripción</span></th></tr></thead><tbody><tr><td><span>Fortran</span></td><td><span>(FORmula TRANslator) desarrollado por IBM Corporation (a mediados de la década de 1950) utilizado para aplicaciones científicas y de ingeniería que requieren cálculos matemáticos complejos.</span></td></tr><tr><td><span>COBOL</span></td><td><span>(COmmon Business Oriented Language) desarrollado a finales de la década de 1950 por los fabricantes de ordenadores, el gobierno de EE.UU. y los usuarios de ordenadores industriales, basado en un lenguaje desarrollado por Grace Hopper, utilizado para aplicaciones comerciales que requieren una manipulación precisa y eficiente de grandes cantidades de datos</span></td></tr><tr><td><span>Pascal</span></td><td><span>Programación estructurada (enfoque disciplinado para escribir programas más claros, más fáciles de probar y depurar y más fáciles de modificar que los programas producidos con técnicas anteriores). Desarrollado por el profesor Niklaus Wirth en 1971, es popular para la enseñanza de la programación estructurada.</span></td></tr><tr><td><span>Ada</span></td><td><span>basado en Pascal, desarrollado bajo el patrocinio del Departamento de Defensa de Estados Unidos (DOD) durante los años 70 y principios de los 80. Lleva el nombre de Lady Ada Lovelace: Se le atribuye la escritura del primer programa informático del mundo a principios del siglo XIX (para el dispositivo informático mecánico Analytical Engine diseñado por Charles Babbage)</span></td></tr><tr><td><span>Basic</span></td><td><span>desarrollado en los años 60 en el Dartmouth College para familiarizar a los novatos con las técnicas de programación.</span></td></tr><tr><td><span>Objective-C</span></td><td><span>Basado en C. Desarrollado a principios de los años 80 y posteriormente adquirido por NeXT, que a su vez fue adquirida por Apple. Lenguaje de programación clave para el sistema operativo OS X y todos los dispositivos con iOS.</span></td></tr><tr><td><span>Swift</span></td><td><span>2014, es el lenguaje de programación del futuro de Apple para el desarrollo de aplicaciones (apps) para iOS y OS X. lenguaje contemporáneo que incluye características populares de lenguajes de programación de Objective-C, Java, C#, Ruby, Python y otros. de código abierto (también se puede utilizar en plataformas que no sean de Apple).</span></td></tr><tr><td><span>Java</span></td><td><span>En 1991, Sun Microsystems financió un proyecto de investigación interno de la empresa dirigido por James Gosling, que dio lugar al lenguaje de programación orientado a objetos Java, basado en C++. Objetivo principal: permitir a los desarrolladores escribir programas que se ejecuten en una gran variedad de sistemas informáticos y dispositivos controlados por ordenador. &quot;Escribir una vez, ejecutar en cualquier lugar&quot;. Se utiliza para desarrollar aplicaciones empresariales a gran escala, para mejorar la funcionalidad de los servidores web, para proporcionar aplicaciones para dispositivos de consumo. lenguaje clave para desarrollar aplicaciones para smartphones y tabletas Android.</span></td></tr><tr><td><span>Visual Basic</span></td><td><span>Visual Basic de Microsoft se introdujo a principios de los años 90 para simplificar el desarrollo de aplicaciones de Microsoft Windows.</span></td></tr><tr><td><span>C#</span></td><td><span>Los tres principales lenguajes de programación orientados a objetos de Microsoft son C#, Visual C++ y Visual Basic. C# se desarrolló para integrar la web en las aplicaciones informáticas, y ahora se utiliza ampliamente para desarrollar aplicaciones empresariales y para el desarrollo de aplicaciones móviles.</span></td></tr><tr><td><span>PHP</span></td><td><span>Código abierto. Lenguaje de &quot;scripting&quot; apoyado por una comunidad de desarrolladores, utilizado por numerosos sitios web. Independiente de la plataforma.</span></td></tr><tr><td><span>Python</span></td><td><span>Lenguaje de scripting. Lanzado públicamente en 1991. Desarrollado por Guido van Rossum. Se basa en gran medida en Modula-3. &quot;extensible&quot; (puede ampliarse mediante clases e interfaces de programación)</span></td></tr><tr><td><span>JavaScript</span></td><td><span>Lenguaje de scripting más utilizado. Se usa principalmente para añadir programabilidad a las páginas web. se suministra con los principales navegadores web.</span></td></tr><tr><td><span>Ruby on Rails</span></td><td><span>Ruby -creado a mediados de la década de 1990 por Yukihiro Matsumoto- es un lenguaje de programación de código abierto orientado a objetos con una sintaxis sencilla similar a la de Python. Ruby on Rails combina el lenguaje de scripting Ruby con el framework de aplicaciones web Rails, desarrollado por la empresa 37Signals. Es bueno para desarrollar aplicaciones web con muchas bases de datos.</span></td></tr><tr><td><span>Scala</span></td><td><span>&quot;Lenguaje escalable&quot; diseñado por Martin Odersky. Lanzado en 2003. Utiliza paradigmas de programación orientada a objetos y de programación funcional; diseñado para integrarse con Java. reduce la cantidad de código en sus aplicaciones de forma significativa.</span></td></tr></tbody></table></figure><h2 id='18-introducción-a-la-tecnología-de-objetos'><span>1.8 Introducción a la tecnología de objetos</span></h2><div align="justify">Los objetos, o más exactamente -las clases de las que proceden los objetos-, son componentes de software reutilizables. Casi cualquier sustantivo puede representarse como objeto de software en términos de atributos (nombre, color, tamaño) y comportamientos (calcular, moverse). El enfoque modular de diseño e implementación orientado a objetos puede hacer que los grupos de desarrollo de software sean mucho más productivos de lo que era posible con técnicas anteriores. <div></div></div><ul><li><div align="justify"><strong>Functions, Member Functions and Classes</strong>(Funciones, funciones miembro y clases). Creamos una unidad de programa llamada clase para alojar el conjunto de funciones que realizan las tareas de la clase (funciones miembro de la clase). Una clase es similar a los planos de ingeniería de un coche, que albergan el diseño del pedal del acelerador, el pedal del freno, etc.<div></div></div></li></ul><ul><li><div align="justify"><strong>Instantation</strong>. Construir un objeto a partir de una clase antes de que un programa pueda realizar las tareas que definen las funciones miembro de la clase. Un objeto se denomina entonces instancia de su clase.<div></div></div></li></ul><ul><li><div align="justify"><strong>Reuso</strong>. La reutilización de las clases existentes al construir nuevas clases y programas ahorra tiempo y esfuerzo; ayuda a construir sistemas más fiables y eficaces: han pasado por extensas pruebas, depuración y ajuste de rendimiento. Las clases reutilizables son cruciales para la revolución del software que ha impulsado la tecnología de objetos.</div></li></ul><ul><li><div align="justify"><strong>Messages and Member-Function Calls</strong> (Mensajes y llamadas a funciones miembro). Enviar mensajes a un objeto. Cada mensaje se implementa como una llamada a una función miembro que indica a una función miembro del objeto que realice su tarea.</div></li></ul><ul><li><div align="justify"><strong>Attributes and Data Members</strong>. (Atributos y miembros de datos) Un objeto tiene atributos que lleva consigo cuando se utiliza en un programa. Estos atributos se especifican como parte de la clase del objeto. Los atributos son especificados por los miembros de datos de la clase.</div></li></ul><ul><li><div align="justify"><strong>Encapsulation</strong>. Las clases encapsulan (envuelven) los atributos y las funciones miembro en objetos creados a partir de esas clases: los atributos y las funciones miembro de los objetos están íntimamente relacionados. Los objetos pueden comunicarse entre sí, pero no pueden saber cómo se implementan otros objetos: los detalles de implementación se ocultan dentro de los propios objetos. la ocultación de información es crucial para una buena ingeniería de software.</div></li></ul><ul><li><div align="justify"><strong>Inheritance</strong>. Se puede crear una nueva clase de objetos de forma rápida y cómoda mediante la herencia: la nueva clase absorbe las características de una clase existente, personalizándolas y añadiendo características propias. </div></li></ul><div align="justify"><p><strong>Análisis y diseño oritentado a objetos (OOAD: Object-Oriented Analysis and Design)</strong>. Código: instrucciones del programa. Para crear las mejores soluciones, hay que seguir un proceso de análisis detallado para determinar los requisitos de su proyecto (definir lo que debe hacer el sistema) y desarrollar un diseño que los satisfaga (cómo debe hacerlo el sistema). revisar el diseño por otros profesionales del software antes de escribir cualquier código. Si este proceso implica analizar y diseñar el sistema desde un punto de vista orientado a objetos, se denomina proceso de análisis y diseño orientado a objetos (OOAD). C++ está orientado a objetos. La programación en un lenguaje de este tipo, llamado programación orientada a objetos (POO), permite implementar un diseño orientado a objetos como un sistema de trabajo. </p><p><strong>Lenguaje de Modelado Unificado (UML: Unified Modeling Language)</strong>. Lenguaje gráfico único para comunicar los resultados de cualquier proceso OOAD. Es el esquema gráfico más utilizado para modelar sistemas orientados a objetos.</p></div><h2 id='19-entorno-de-desarrollo-típico-de-c'><span>1.9 Entorno de desarrollo típico de C++</span></h2><div align="justify">Los sistemas C++ constan de tres partes: entorno de desarrollo de programas, lenguaje y biblioteca estándar C++. Los programas C++ pasan por seis fases: editar, preprocesar, compilar, enlazar, cargar y ejecutar. Típico entorno de desarrollo de programas C++. </div><figure><table><thead><tr><th><span>Fase</span></th><th><span>Descripción</span></th></tr></thead><tbody><tr><td><span>1. Edición</span></td><td><span>El programador crea el programa en el editor, realiza las correcciones necesarias y lo guarda en el disco. </span></td></tr><tr><td><span>2. Preprocesamiento </span></td><td><span>El programa de preprocesamiento se ejecuta automáticamente antes de que comience la fase de traducción del compilador. El preprocesador C++ obedece a comandos directivas de preprocesamiento (indican que se deben realizar ciertas manipulaciones en el programa antes de la compilación). Estas manipulaciones incluyen otros archivos de texto que se van a compilar, y realizan diversas sustituciones de texto.</span></td></tr><tr><td><span>3. Compilación </span></td><td><span>El compilador traduce el programa C++ a código objeto (lenguaje de máquina) y lo almacena en el disco.</span></td></tr><tr><td><span>4. Linking (Enlazar)</span></td><td><span>Se enlaza el código objeto con las bibliotecas, creándose un archivo ejecutable que se almacena en el disco. Un enlazador enlaza el código objeto con el código de las funciones que faltan para producir un programa ejecutable (sin piezas que falten). Si el programa se compila y enlaza correctamente, se produce una imagen ejecutable.</span></td></tr><tr><td><span>5. Loading (cargar)</span></td><td><span>El cargador (loader) pone el programa en la memoria: toma la imagen ejecutable del disco y la transfiere a la memoria. También se cargan los componentes adicionales de las bibliotecas compartidas que soportan el programa.</span></td></tr><tr><td><span>6. Ejecución</span></td><td><span>La CPU toma cada instrucción y la ejecuta (una a la vez), almacenando nuevos valores de datos mientras se ejecuta el programa. Algunas arquitecturas de ordenador modernas ejecutan varias instrucciones en paralelo.</span></td></tr></tbody></table></figure><div align="justify"><strong>Entornos de desarrollo integrado</strong> (IDEs: Integrated development environments). Los IDEs proporcionan herramientas que apoyan el proceso de desarrollo de software, incluyendo editores para escribir y editar programas y depuradores para localizar errores lógicos - errores que causan que los programas se ejecuten incorrectamente. errores que causan que los programas se ejecuten incorrectamente.</div><p><strong><span>Problemas que pueden surgir en el momento de la ejecución</span></strong></p><ul><li><span>Operaciones ilegales para la aritmética de enteros en C++</span></li><li><span>Algunas funciones de C++ toman su entrada de </span><strong><span>cin</span></strong><span> (flujo de entrada estándar; se pronuncia &quot;see-in&quot;), pero </span><strong><span>cin</span></strong><span> puede ser redirigido a otro dispositivo. Los datos salen por </span><strong><span>cout</span></strong><span> (flujo de salida estándar; se pronuncia &quot;see-out&quot;, pantalla del ordenador), pero </span><strong><span>cout</span></strong><span> puede redirigirse a otro dispositivo.</span></li><li><strong><span>Flujo de error estándar (cerr)</span></strong><span>. El flujo </span><strong><span>cerr </span></strong><span>(conectado a la pantalla) se utiliza para reproducir mensajes de error.</span></li><li><strong><span>Errores en tiempo de ejecución</span></strong><span>. Se producen mientras se ejecuta un programa.</span></li><li><strong><span>Errores de ejecución fatales</span></strong><span>. Hacen que los programas terminen inmediatamente sin haber realizado con éxito su trabajo.</span></li><li><strong><span>Errores de ejecución no fatales</span></strong><span>. Permiten que los programas se ejecuten hasta el final, produciendo a menudo resultados incorrectos.</span></li></ul><h2 id='110-prueba-de-una-aplicación-c'><span>1.10 Prueba de una aplicación C++</span></h2><p><span>Pasos:</span></p><ol start='' ><li><p><span>Revisar la configuración</span></p></li><li><p><span>Iniciar Visual Studio</span></p></li><li><p><span>Crear un proyecto (grupo de archivos relacionados). Visual Studio organiza las aplicaciones en proyectos y soluciones, que contienen uno o más proyectos. Para crear un proyecto:</span></p><ol start='' ><li><span>Selecciona File &gt; New &gt; Project….</span></li><li><span>En la parte izquierda del cuadro de diálogo New proyecto, seleccione la categoría Installed &gt; Templates &gt; Visual C++ &gt; Win32</span></li><li><span>En la sección central del diálogo New project, seleccione Win32 Console Application.</span></li><li><span>Proporcione un nombre para su proyecto en el Name field. OK para mostrar el Win32 Application Wizard window. Next &gt;para mostrar el paso de Configuración de la aplicación.</span></li><li><span>Configure los ajustes para crear una solución que contenga un proyecto vacío y haga clic en Finalizar.</span></li></ol></li><li><p><span>Agregar el archivo GuessNumber.cpp al Proyecto:</span></p><ol start='' ><li><span>Clic derecho del ratón en el folder Source Files y seleccionar Add &gt; New Item…para mostrar un diálogo para añadir un nuevo archivo.</span></li></ol></li><li><p><span>Compilación y ejecución del proyecto</span></p><ol start='' ><li><span>Debug &gt; Start without debugging o teclear Ctrl + F5. Si el programa se compila correctamente, el IDE abre una ventana de símbolo del sistema y ejecuta el programa.</span></li></ol></li><li><p><span>Introducir su primera estimación. </span></p></li><li><p><span>Introducir otra estimación.</span></p></li><li><p><span>Introducción de estimaciones adicionales</span></p></li><li><p><span>Volver a jugar o salir de la aplicación (y o n)</span></p></li></ol><h2 id='111-sistemas-operativos'><span>1.11 Sistemas operativos</span></h2><div align="justify">Sistemas de software que hacen más cómodo el uso de los ordenadores. Proporcionan servicios que permiten que cada aplicación se ejecute de forma segura, eficiente y concurrente (en paralelo) con otras aplicaciones. <strong>Kernel</strong>: software que contiene los componentes principales del sistema operativo.</div><h3 id='1111-windows---sistema-operativo-propietario'><span>1.11.1 Windows - Sistema Operativo Propietario</span></h3><div align="justify">A mediados de la década de 1980, Microsoft desarrolló el sistema operativo Windows: era una interfaz gráfica de usuario construida sobre DOS (Disk Operating System). Windows tomó prestados muchos conceptos (iconos, menús y ventanas) desarrollados por Xerox PARC y popularizados por los primeros sistemas operativos Macintosh de Apple. Es un sistema operativo propietario (controlado exclusivamente por Microsoft). Es el sistema operativo de escritorio más utilizado del mundo. </div><h3 id='1112-linux---an-open-source-operating-system'><span>1.11.2 Linux—An Open-Source Operating System</span></h3><div align="justify"><p>El mayor éxito del movimiento de código abierto (individuos y empresas contribuyen con sus esfuerzos en el desarrollo, mantenimiento y evolución del software a cambio del derecho a utilizar ese software para sus propios fines, normalmente sin coste alguno; examinado por un público mucho más amplio que el software propietario, por lo que los errores se eliminan más rápido; fomenta la innovación). </p><p>Las rápidas mejoras en la informática y las comunicaciones, la disminución de los costes y el software de código abierto han hecho que sea mucho más fácil y económico crear una empresa basada en software ahora que hace una década.</p><p>El kernel de Linux es el núcleo del sistema operativo más popular de código abierto, de libre distribución y con todas las funciones, desarrollado por un equipo de voluntarios poco organizado y popular en servidores, ordenadores personales y sistemas integrados (en teléfonos y televisiones inteligentes, automóviles). El código fuente de Linux (el código del programa) está a disposición del público para su examen y modificación, y su descarga e instalación son gratuitas; los usuarios de Linux se benefician de una enorme comunidad de desarrolladores que depuran y mejoran activamente el núcleo, y de la posibilidad de personalizar el sistema operativo para satisfacer necesidades específicas.</p></div><h3 id='1113--apples-os-x-apples-ios-para-iphone®-ipad®-e-ipod-touch®'><span>1.11.3  Apple’s OS X; Apple’s iOS para iPhone®, iPad® e iPod Touch®</span></h3><ul><li><span>Apple es fundada por Steve Jobs y Steve Wozniak en 1976.</span></li><li><span>Jobs y  varios empleados de Apple, en 1979, visitaron el Xerox PARC (Centro de Investigación de Palo Alto) para conocer el ordenador de sobremesa de Xerox, que contaba con una interfaz gráfica de usuario (GUI), la cual sirvió de inspiración para el Apple Macintosh (1984).</span></li><li><span>El lenguaje de programación Objective-C, creado por Brad Cox y Tom Love en Stepstone a principios de la década de 1980, añadió capacidades de programación orientada a objetos (POO) al lenguaje de programación C. </span></li><li><span>Steve Jobs dejó Apple en 1985 y fundó NeXT Inc. </span></li><li><span>En 1988, NeXT obtuvo la licencia de Objective-C de StepStone y desarrolló un compilador y bibliotecas de Objective-C que se utilizaron como plataforma para la interfaz de usuario de NeXTSTEP, así como Interface Builder (para interfaces gráficas de usuario).</span></li><li><span>Jobs regresó a Apple en 1996, cuando ésta compró NeXT. </span></li><li><span>OS X de Apple es descendiente de NeXTSTEP. iOS deriva del OS X de Apple y se utiliza en los dispositivos iPhone, iPad y iPod Touch. En 2014, Apple presentó Swift, que se convirtió en código abierto en 2015. La comunidad de desarrolladores de aplicaciones para iOS está pasando gradualmente de Objective-C a Swift.</span></li></ul><h3 id='1114-googles-android'><span>1.11.4 Google&#39;s Android</span></h3><div align="justify"><p>Android -sistema operativo para dispositivos móviles inteligentes de más rápido crecimiento- se basa en el núcleo de Linux y Java. Sus aplicaciones también pueden desarrollarse en C++ y C. Ventaja: apertura de la plataforma.</p><p>El sistema operativo es de código abierto y gratuito; fue desarrollado por Android, Inc. (adquirida por Google en 2005). En 2007, se formó la Open Handset Alliance™ para desarrollar, mantener y evolucionar Android. El sistema operativo se utiliza en numerosos teléfonos inteligentes, dispositivos de lectura electrónica, tabletas, quioscos con pantalla táctil en tiendas, coches, robots, reproductores multimedia y mucho más.</p></div><h2 id='112-el-internet-y-la-world-wide-web'><span>1.12 El Internet y la World Wide Web</span></h2><div align="justify"><p>A finales de la década de 1960, ARPA (Agencia de Proyectos de Investigación Avanzada del Departamento de Defensa de Estados Unidos) buscó conectar en red los principales sistemas informáticos de una docena de universidades e instituciones de investigación financiadas por ARPA; procedió a poner ARPANET (precursor de la actual Internet) en marcha. Aunque está permitió a los investigadores conectar sus ordenadores en red, su principal ventaja fue la capacidad de comunicación rápida y sencilla a través de correo electrónico.</p><p>El protocolo (conjunto de reglas) para comunicarse a través de ARPANET se conoce como Protocolo de Control de Transmisión (TCP). El TCP garantizaba que los mensajes, formados por paquetes (piezas numeradas secuencialmente), se dirigieran correctamente del emisor al receptor, llegaran intactos y se ensamblaran en el orden correcto.</p></div><p><strong><span>Internet: Una red de redes</span></strong></p><div align="justify"><p>Organizaciones de todo el mundo estaban implementando sus propias redes para la comunicación tanto intraorganizacional (dentro) como interorganizacional (entre organizaciones). Uno de los retos era permitir que estas diferentes redes se comunicaran entre sí. ARPA lo consiguió desarrollando el Protocolo de Internet (IP), que creó una "red de redes", la arquitectura de Internet. El conjunto de protocolos se denomina ahora TCP/IP.</p><p>Las empresas gastaron grandes cantidades de dinero para desarrollar y mejorar su presencia en Internet. Como resultado, el ancho de banda (capacidad de transporte de información de las líneas de comunicación) en Internet ha aumentado enormemente, mientras que los costes de hardware han caído en picada.</p><div></div></div><p><strong><span>La World Wide Web: Hacer que Internet sea &quot;fácil de usar&quot;</span></strong></p><div align="justify"><p>La World Wide Web ("la web") es un conjunto de hardware y software asociado a Internet que permite a los usuarios de ordenadores localizar y visualizar documentos basados en multimedia (texto, gráficos, animaciones, audios y vídeos) sobre cualquier tema.</p><p>En 1989, Tim Berners-Lee, del CERN (Organización Europea para la Investigación Nuclear), comenzó a desarrollar una tecnología para compartir información a través de documentos de texto "hipervinculados" (HTML: HyperText Markup Language). También escribió protocolos de comunicación: Protocolo de Transferencia de Hipertexto (HTTP) para formar la columna vertebral de su nuevo sistema de información de hipertexto (World Wide Web).</p><p>En 1994, Berners-Lee fundó el Consorcio de la World Wide Web (W3C), dedicado a desarrollar tecnologías web. Uno de sus principales objetivos es hacer que la web sea universalmente accesible para todo el mundo, independientemente de su discapacidad, idioma o cultura.</p></div><p><strong><span> Servicios web</span></strong><span>. Son componentes de software almacenados en un ordenador a los que puede acceder una aplicación (u otro componente de software) en otro ordenador a través de Internet.</span></p><ul><li><span>Mashups. Permiten desarrollar rápidamente aplicaciones combinando servicios web complementarios, de múltiples organizaciones. Ej.100 Destinations</span></li></ul><p><strong><span>Ajax</span></strong><span>. La tecnología Ajax ayuda a que las aplicaciones basadas en Internet funcionen como las de escritorio.</span></p><p><strong><span>Internet de las cosas</span></strong><span>. &quot;Cosa&quot; es cualquier objeto con una dirección IP y la capacidad de enviar datos automáticamente a través de Internet.</span></p><h2 id='113-algunos-términos-clave-del-desarrollo-de-software'><span>1.13 Algunos términos clave del desarrollo de software </span></h2><figure><table><thead><tr><th><span>Tecnología </span></th><th><span>Descripción</span></th></tr></thead><tbody><tr><td><span>Agile software development (desarrollo ágil de software )</span></td><td><span>Conjunto de metodologías que tratan de conseguir que el software se implemente más rápidamente, utilizando menos recursos.</span></td></tr><tr><td><span>Refactoring (refactorización )</span></td><td><span>Reelaborar los programas para hacerlos más claros y fáciles de mantener, conservando su corrección y funcionalidad.</span></td></tr><tr><td><span>Design patterns (patrones de diseño)</span></td><td><span>Arquitecturas probadas para construir software orientado a objetos flexible y mantenible.</span></td></tr><tr><td><span>LAMP</span></td><td><span>Acrónimo de las tecnologías de código abierto utilizadas para crear aplicaciones web de forma económica (Linux, Apache, MySQL y PHP). MySQL es un sistema de gestión de bases de datos de código abierto; PHP es un popular lenguaje de &quot;scripting&quot; del lado del servidor para desarrollar aplicaciones web; Apache es el software de servidor web más popular. El equivalente para el desarrollo en Windows es WAMP (Windows, Apache, MySQL y PHP)</span></td></tr><tr><td><span>SaaS: Software as a Service (Software como servicio)</span></td><td><span>El software se ejecuta en servidores en otro lugar de Internet. Cuando ese servidor se actualiza, todos los clientes del mundo ven las nuevas capacidades, sin necesidad de instalación local (se accede al servicio a través de un navegador).</span></td></tr><tr><td><span>PaaS: Platform as a Service (Plataforma como servicio)</span></td><td><span>Proporciona una plataforma informática para desarrollar y ejecutar aplicaciones como un servicio a través de la web, en lugar de instalar las herramientas en el ordenador.</span></td></tr><tr><td><span>Cloud computing</span></td><td><span>Puede utilizar software y datos almacenados en la &quot;nube&quot; (a los que se accede en ordenadores o servidores) remotos a través de Internet y que están disponibles bajo demanda) en lugar de tenerlos almacenados localmente en su ordenador; permite aumentar / reducir recursos informáticos para satisfacer las necesidades en cualquier momento; ahorra dinero al trasladar al proveedor de servicios la carga de gestionar estas aplicaciones.</span></td></tr><tr><td><span>SDK: Software Development Kit (kits de desarrollo de software)</span></td><td><span>Incluyen herramientas y documentación que los desarrolladores utilizan para programar aplicaciones.</span></td></tr></tbody></table></figure><p><span>Cuando se desarrollan grandes productos de software, se ponen a disposición de las comunidades de usuarios como una serie de versiones, cada una más completa y pulida que la anterior.</span></p><figure><table><thead><tr><th><span>Versión</span></th><th><span>Descripción</span></th></tr></thead><tbody><tr><td><span>Alpha</span></td><td><span>Primera versión de un producto de software que todavía está en desarrollo activo. Tiene errores, es incompleta e inestable y se libera a un número relativamente pequeño de desarrolladores para probar nuevas características y obtener comentarios tempranos.</span></td></tr><tr><td><span>Beta</span></td><td><span>Se lanzan a un mayor número de desarrolladores en una fase posterior del proceso de desarrollo, una vez que se han corregido la mayoría de los errores importantes y se han completado casi por completo las nuevas funciones. Es más estable, pero sigue estando sujeto a cambios.</span></td></tr><tr><td><span>Release candidates (versiones candidatas)</span></td><td><span>Tienen todas las características, están libres de errores (en su mayoría) y están listas para ser utilizadas por la comunidad, lo que proporciona un entorno de pruebas diverso: el software se utiliza en diferentes sistemas, con distintas limitaciones y para una variedad de propósitos.</span></td></tr><tr><td><span>Final release</span></td><td><span>Los errores que aparecen en la versión candidata se corrigen y el producto final se pone a disposición del público. Las empresas de software distribuyen actualizaciones incrementales a través de Internet.</span></td></tr><tr><td><span>Continuous beta</span></td><td><span>No tiene números de versión, es alojada en la nube y está en constante evolución para que los usuarios tengan siempre la última versión.</span></td></tr></tbody></table></figure><h2 id='114-c11-and-c14-the-latest-c-versions'><span>1.14 C++11 and C++14: The Latest C++ Versions</span></h2><p><span>C++11 fue publicado por ISO/IEC en 2011. C++11 amplió la biblioteca estándar de C++ y añadió varias funciones y mejoras para aumentar el rendimiento y la seguridad.</span></p><p><span>C++14, fue publicado por ISO/IEC en 2014. añadió varias</span>
+<span>características del lenguaje y mejoras en la Biblioteca Estándar de C++, y corrigió errores de C++11.</span></p><h2 id='115-bibliotecas-boost-c'><span>1.15 Bibliotecas Boost C++ </span></h2><div align="justify"><p>Son bibliotecas gratuitas y de código abierto creadas por miembros de la comunidad C++. Están revisadas por pares y son portables a través de muchos compiladores y plataformas. Las expresiones regulares se utilizan para hacer coincidir patrones de caracteres específicos en el texto. Pueden utilizarse para validar datos y asegurarse de que tienen un formato determinado, para sustituir partes de una cadena por otra o para dividir una cadena.</p> </div><ul><li><span>Poderosa capacidad de programación que C++ absorbió de C: los punteros inteligentes ayudan a evitar algunos errores clave asociados a los punteros tradicionales.</span></li></ul><h2 id='116-mantenerse-al-día-con-las-tecnologías-de-la-información'><span>1.16 Mantenerse al día con las tecnologías de la información</span></h2><figure><table><thead><tr><th><span>Publicación</span></th><th><span>URL</span></th></tr></thead><tbody><tr><td><span>AllThingsD</span></td><td><span>allthingsd.com</span></td></tr><tr><td><span>Bloomberg BusinessWeek</span></td><td><a href='http://www.businessweek.com' target='_blank' class='url'>www.businessweek.com</a></td></tr><tr><td><span>CNET</span></td><td><span>news.cnet.com</span></td></tr><tr><td><span>Communications of the ACM</span></td><td><span>cacm.acm.org</span></td></tr><tr><td><span>Computerworld</span></td><td><a href='http://www.computerworld.com' target='_blank' class='url'>www.computerworld.com</a></td></tr><tr><td><span>Engadget</span></td><td><a href='http://www.engadget.com' target='_blank' class='url'>www.engadget.com</a></td></tr><tr><td><span>eWeek</span></td><td><a href='http://www.eweek.com' target='_blank' class='url'>www.eweek.com</a></td></tr><tr><td><span>Fast Company</span></td><td><a href='http://www.fastcompany.com' target='_blank' class='url'>www.fastcompany.com</a></td></tr><tr><td><span>Fortune</span></td><td><span>fortune.com</span></td></tr><tr><td><span>GigaOM</span></td><td><span>gigaom.com</span></td></tr><tr><td><span>Hacker News</span></td><td><span>news.ycombinator.com</span></td></tr><tr><td><span>IEEE Computer Magazine</span></td><td><a href='http://www.computer.org/portal/web/computingnow/computer' target='_blank' class='url'>www.computer.org/portal/web/computingnow/computer</a></td></tr><tr><td><span>InfoWorld</span></td><td><a href='http://www.infoworld.com' target='_blank' class='url'>www.infoworld.com</a></td></tr><tr><td><span>Mashable</span></td><td><span>mashable.com</span></td></tr><tr><td><span>PCWorld</span></td><td><a href='http://www.pcworld.com' target='_blank' class='url'>www.pcworld.com</a></td></tr><tr><td><span>SD Times</span></td><td><a href='http://www.sdtimes.com' target='_blank' class='url'>www.sdtimes.com</a></td></tr><tr><td><span>Slashdot</span></td><td><span>slashdot.org</span></td></tr><tr><td><span>Stack Overflow</span></td><td><span>stackoverflow.com</span></td></tr><tr><td><span>Technology Review</span></td><td><span>technologyreview.com</span></td></tr><tr><td><span>Techcrunch</span></td><td><span>techcrunch.com</span></td></tr><tr><td><span>The Next Web</span></td><td><span>thenextweb.com</span></td></tr><tr><td><span>The Verge</span></td><td><a href='http://www.theverge.com' target='_blank' class='url'>www.theverge.com</a></td></tr><tr><td><span>Wired</span></td><td><a href='http://www.wired.com' target='_blank' class='url'>www.wired.com</a></td></tr></tbody></table></figure><p>&nbsp;</p></div></div>
+</body>
+</html>
