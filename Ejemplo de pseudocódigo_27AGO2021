@@ -1,4 +1,5 @@
-# Pseudocódigo que realiza la sumatoria de los elementos
+# 1. Pseudocódigo que realiza la sumatoria de los elementos
+# No utilizamos espacios al nombrar procedimientos. Utilizamos la notación de camello.
 procedure sumElements(A,n)
   # Inputs: A: vector de entrada
          #  n: Número de elementos de A
@@ -9,3 +10,18 @@ procedure sumElements(A,n)
   for(i = 0; i<n; i++)
     suma = suma A[i]
   return suma
+  
+  ### Termina primer ejemplo ###
+  
+  # 2. Pseudocódigo que realiza la suma del producto de dos seires
+  procedure sumProduct(m,n)
+    #inputs: m, n
+    #output: total
+    
+    total=0
+    for(i = 1, i<n; i++) # n operaciones
+      for(j = 0; j<m; j++) # m operaciones
+        total = total + (i * j)
+    return total
+# Guardarlo con notación cpp o de python para que no sea plano
+# Siempre poner los parámetros en los paréntesis
